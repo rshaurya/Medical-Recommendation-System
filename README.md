@@ -33,9 +33,7 @@ In today's fast-paced world, quick and reliable medical guidance is essential. T
 1. Clone the repository
 2. Open the folder in PyCharm
 3. Make sure virtual environment is set
-4. Install required packages from `requirements.txt`
-5. Run `app.py`
-6. Open browser and go to: `http://127.0.0.1:5000/`
+4. Run `Main.py'
 
 ---
 
