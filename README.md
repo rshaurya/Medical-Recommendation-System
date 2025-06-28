@@ -44,6 +44,11 @@ But it can be helpful in **telemedicine**, **rural diagnosis support**, or as a 
 
 ---
 
+## 🖼️ Project Preview
+
+![Home Page](![Screenshot 2025-06-28 091844](https://github.com/user-attachments/assets/69b14471-1456-4e0a-b1d1-5a0ff772b47e)
+)
+
 ## 👩‍💻 Developed by
 
 **Lucky Kumari**  
