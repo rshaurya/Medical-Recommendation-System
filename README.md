@@ -47,7 +47,22 @@ But it can be helpful in **telemedicine**, **rural diagnosis support**, or as a 
 ## 🖼️ Project Preview
 
 ![Home Page](![Screenshot 2025-06-28 091844](https://github.com/user-attachments/assets/69b14471-1456-4e0a-b1d1-5a0ff772b47e)
+
+![Screenshot 2025-06-28 091918](https://github.com/user-attachments/assets/8b625aec-2afe-403b-92cb-24c3649b7afa)
+
+![Screenshot 2025-06-28 091944](https://github.com/user-attachments/assets/beca7610-e327-4119-9f06-d0e0d100263b)
 )
+
+
+## 🤝 Collaboration
+
+If you're interested in contributing to this project, feel free to fork the repository and create a pull request.
+
+For feature suggestions or improvements, you can also open an issue directly on GitHub.
+
+Let's build something meaningful together! 💡
+
+
 
 ## 👩‍💻 Developed by
 
