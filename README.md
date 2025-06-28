@@ -1,4 +1,4 @@
-# Health Care Recommendation System 🩺💊
+# Medical Recommendation System 🩺💊
 
 This project is a simple web-based **medicine recommendation system** designed to assist **doctors** and support **patients** by providing relevant medicine suggestions based on symptoms or input data.
 
