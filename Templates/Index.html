@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="Contact.html">Contact</a>
+          <a class="nav-link" href="/contact">Contact</a>
         </li>
 
         <li class="nav-item">
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" style="background-color: #modal-body-color;"> <!-- Set modal body background color inline -->
+                <div class="modal-body" style="background-color: #d9534f;"> <!-- Set modal body background color inline -->
                     <p style="font-weight:bold;">{{ predicted_disease }}</p>
                 </div>
             </div>
@@ -426,6 +426,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+<form action="/predict" method="post" class="my-3">
+  <label for="symptoms" class="form-label">Enter symptoms (comma-separated):</label>
+  <input type="text" id="symptoms" name="symptoms" class="form-control" placeholder="itching, skin_rash" required>
+  <button type="submit" class="btn btn-primary mt-2">Predict</button>
+</form>
+
 
 </body>
 </html>
