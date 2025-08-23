@@ -54,7 +54,8 @@ def get_predicted_value(patient_symptoms):
         input_vector[symptoms_dict[item]] = 1
     return diseases_list[svc.predict([input_vector])[0]]
 
-
+# Emergency symptoms list
+emergency_symptoms = ['chest_pain', 'breathlessness', 'unconsciousness','severe_headache', 'dizziness', 'fainting','seizures', 'stomach_bleeding', 'high_fever']
 
 #creating routes================
 @app.route('/')
@@ -110,6 +111,12 @@ def predict():
         dis_wrkout=wrkout,
         unknown=unknown
     )
+     # Check if entered symptom is in emergency list
+    if symptom.lower().replace(" ", "_") in emergency_symptoms:
+        return render_template(
+            "index.html",prediction_text="⚠️ This may be a medical emergency. Please contact a doctor or emergency services immediately.",
+            is_emergency=True
+        )
 
 
 @app.route('/about')
