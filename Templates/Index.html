@@ -395,6 +395,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");   
+    const predictBtn = document.querySelector(".predict-btn");
+    const symptomsInput = document.getElementById("symptoms");
+  
+    const emergencySymptoms = ["chest pain","shortness of breath","breathing difficulty","fainting","seizure","severe bleeding","unconscious","severe headache","high fever"];
+  
+    predictBtn.addEventListener("click", function (e) {
+      const userInput = symptomsInput.value.toLowerCase();
+  
+      const isEmergency = emergencySymptoms.some(symptom =>
+        userInput.includes(symptom)
+      );
+  
+      if (isEmergency) {
+        e.preventDefault();
+        alert("⚠️ This may be a medical emergency. Please contact a doctor or emergency services immediately.");
+      } else {
+        form.submit(); 
+      }
+    });
+  });
+  </script>
 </body>
 </html>
