@@ -91,6 +91,30 @@
         box-shadow: 0px 0px 12px white;
         transform: scale(1.08);
         }
+        .extra-feature {
+        display: inline-block;        
+        margin-top: 4px;             
+        margin-bottom: 0px;          
+        padding: 9px 18px;           
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffffff;               
+        background-color: #4da3ff;    
+        border: none;
+        border-radius: 10px;           
+        cursor: pointer;
+        width: fit-content;           
+        text-decoration: none;
+        transition:
+          transform 0.2s ease 0.2s,
+          box-shadow 0.1s ease 0.1s,
+          background-color 0.2s ease 0.2s; 
+        }
+        .extra-feature:hover {
+        transform: scale(1.02);
+        background-color: #1f4aa5;    
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
   </head>
   <body>
@@ -159,6 +183,9 @@
           </button>
 
           <button class="btn btn-danger predict-btn">Predict</button>
+          
+          <!-- NEW BUTTON ADDED -->
+          <a href="/extra" class="extra-feature">Extra Feature</a>
       </form>
     </div>
 
@@ -189,7 +216,7 @@
                     <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" style="background-color: #modal-body-color;"> <!-- Set modal body background color inline -->
+                <div class="modal-body" style="background-color: #d9534f;"> <!-- Set modal body background color inline -->
                     <p style="font-weight:bold;">{{ predicted_disease }}</p>
                 </div>
             </div>
@@ -368,6 +395,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");   
+    const predictBtn = document.querySelector(".predict-btn");
+    const symptomsInput = document.getElementById("symptoms");
+  
+    const emergencySymptoms = ["chest pain","shortness of breath","breathing difficulty","fainting","seizure","severe bleeding","unconscious","severe headache","high fever"];
+  
+    predictBtn.addEventListener("click", function (e) {
+      const userInput = symptomsInput.value.toLowerCase();
+  
+      const isEmergency = emergencySymptoms.some(symptom =>
+        userInput.includes(symptom)
+      );
+  
+      if (isEmergency) {
+        e.preventDefault();
+        alert("⚠️ This may be a medical emergency. Please contact a doctor or emergency services immediately.");
+      } else {
+        form.submit(); 
+      }
+    });
+  });
+  </script>
 </body>
 </html>

@@ -6,169 +6,117 @@
   <title>Contact Us</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-        body {
-            background-image: url('https://wallpaperaccess.com/full/5301521.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-        }
-
-        .heading {
-           padding-top: 40px;   /* ensures it's below navbar */
-           text-align:center;
-           color:#fff;
-        }
-
-        .fill {
-          background-color: white;
-          border-radius: 8px;
-          padding:40px;
-          width:70vw;
-          box-shadow: 0px 0px 12px grey;
-          margin: auto;
-          margin-top: 30px;   /* spacing after heading */
-        }
-
-        .contact-info {
-          margin-bottom: 20px;
-        }
-
-        .contact-form input, .contact-form textarea {
-          width: 100%;
-          padding: 10px;
-          margin: 8px 0;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-        }
-
-        .contact-form button {
-          background-color: #0542a7;
-          color: white;
-          font-weight: bold;
-          padding: 10px;
-          border: none;
-          border-radius: 6px;
-          width: 100%;
-          cursor: pointer;
-        }
-
-        .contact-form button:hover {
-          background-color: #032d70;
-        }
-
-        /* 🔥 Toast styles */
-        #toast {
-          visibility: hidden;
-          min-width: 250px;
-          margin-left: -125px;
-          background-color: #333;
-          color: #fff;
-          text-align: center;
-          border-radius: 6px;
-          padding: 16px;
-          position: fixed;
-          z-index: 1;
-          left: 50%;
-          bottom: 30px;
-          font-size: 17px;
-        }
-
-        #toast.show {
-          visibility: visible;
-          -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-          animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-
-        @-webkit-keyframes fadein {
-          from {bottom: 0; opacity: 0;} 
-          to {bottom: 30px; opacity: 1;}
-        }
-
-        @keyframes fadein {
-          from {bottom: 0; opacity: 0;}
-          to {bottom: 30px; opacity: 1;}
-        }
-
-        @-webkit-keyframes fadeout {
-          from {bottom: 30px; opacity: 1;} 
-          to {bottom: 0; opacity: 0;}
-        }
-
-        @keyframes fadeout {
-          from {bottom: 30px; opacity: 1;}
-          to {bottom: 0; opacity: 0;}
-        }
+    body {
+      background: url('https://wallpaperaccess.com/full/5301521.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    .overlay {
+      background-color: rgba(0,0,0,0.6);
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+    .card-custom {
+      border-radius: 16px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+    }
+    .contact-form input, .contact-form textarea {
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    /* Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;} 
+      to {bottom: 0; opacity: 0;}
+    }
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0542a7;">
-  <div class="container-fluid">
-    <div class="logo">
-      <img class="myimg" src="{{url_for('static', filename='img (1).png')}}" alt="" style="width:40px; height:40px; border-radius:20px;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0542a7;">
+    <div class="container-fluid">
+      <div class="logo">
+        <img class="myimg" src="{{url_for('static', filename='img (1).png')}}" alt="" style="width:40px; height:40px; border-radius:20px;">
+      </div>
+      <a class="navbar-brand ms-2" href="#">Health Care Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/developer">Developer</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    <a class="navbar-brand ms-2" href="#">Health Care Center</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/developer">Developer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-  <h1 class="heading">Contact Us</h1>
-
-  <div class="fill">
-    <div class="contact-info">
-      <h2>Have questions or need assistance? We're here to help!</h2>
-      <p><strong>Customer Support:</strong> Our dedicated support team is available to assist you with any inquiries or issues you may have. Whether it's a technical question, feedback, or a general inquiry, we're just a message away.</p>
-      <p><strong>Email:</strong> healthcare@gmail.com</p>
-      <p><strong>Phone:</strong> 1234567890</p>
-    </div>
-
-    <div class="contact-form">
-      <h3>Get in Touch</h3>
-      <form onsubmit="showToast(event)">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+  <div class="overlay">
+    <div class="container">
+      <h1 class="text-center text-white mb-4">Contact Us</h1>
+      <div class="card card-custom bg-white p-4">
+        <div class="row">
+          <!-- Contact Info -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h2 class="fw-bold">We’d love to hear from you!</h2>
+            <p class="text-muted">Our support team is here to assist you with inquiries, feedback, or technical issues.</p>
+            <p><strong>Email:</strong> healthcare@gmail.com</p>
+            <p><strong>Phone:</strong> +91 1234567890</p>
+          </div>
+          <!-- Contact Form -->
+          <div class="col-md-6 contact-form">
+            <h3 class="fw-semibold mb-3">Send us a Message</h3>
+            <form onsubmit="showToast(event)">
+              <input type="text" class="form-control mb-3" placeholder="Your Name" required>
+              <input type="email" class="form-control mb-3" placeholder="Your Email" required>
+              <textarea rows="5" class="form-control mb-3" placeholder="Your Message" required></textarea>
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 🔥 Toast container -->
+  <!-- Toast -->
   <div id="toast">✅ Your message has been sent!</div>
 
   <script>
     function showToast(event) {
-      event.preventDefault(); // prevent form refresh
+      event.preventDefault();
       var toast = document.getElementById("toast");
       toast.className = "show";
-      setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-      
-      // clear form fields
+      setTimeout(() => toast.className = toast.className.replace("show", ""), 3000);
       event.target.reset();
     }
   </script>
